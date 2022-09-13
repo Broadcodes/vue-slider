@@ -42,7 +42,7 @@
                             <img class="active" :src="element.image" :alt="element.title" />
                         </div>
                         <div class="thumb" v-else>
-                            <img :src="element.image" :alt="element.title" />
+                            <img @click="activeSlide(slides.indexOf(element))" :src="element.image" :alt="element.title" />
                         </div>
                     </div>
                 </div>
