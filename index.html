@@ -24,13 +24,12 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item" v-for="element in slides">
-
-                    <img :src="element.image" :alt="element.title" />
+                <div class="item">
+                    <img :src="slides[indexItem].image" :alt="slides[indexItem].title" />
                     <div class="text">
-                        <h3>{{element.title}}</h3>
+                        <h3>{{slides[indexItem].title}}</h3>
                         <p>
-                            {{element.text}}
+                            {{slides[indexItem].text}}
                         </p>
                     </div>
                 </div>
@@ -39,7 +38,7 @@
                     <div class="prev"></div>
                     <div class="next"></div>
                     <div class="thumb" v-for="element in slides">
-                        <img :src="element.image" alt="element.title" />
+                        <img :src="element.image" :alt="element.title" />
                     </div>
                 </div>
 

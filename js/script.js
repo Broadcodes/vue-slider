@@ -13,6 +13,7 @@ const app = new Vue(
     {
         el: '#app',
         data: {
+            indexItem: 0,
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -40,6 +41,9 @@ const app = new Vue(
                     text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
                 }
             ]
+        },
+        methods: {
+            
         }
     }
 );
