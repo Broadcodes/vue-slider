@@ -25,7 +25,7 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img :mouseleave="autoplay()" :src="slides[indexItem].image" :alt="slides[indexItem].title" />
+                    <img onmouseenter="app.pause()" :mouseleave="play()"  onmouseleave="app.autoplay()" :src="slides[indexItem].image" :alt="slides[indexItem].title" />
                     <div class="text">
                         <h3>{{slides[indexItem].title}}</h3>
                         <p>

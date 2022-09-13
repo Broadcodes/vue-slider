@@ -65,12 +65,23 @@ const app = new Vue(
             },
 
             // applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+            play(){
+                this.interval = setTimeout(()=>{
+                    this.interval = clearInterval(this.interval);
+                    this.nextSlide();
+                }, 3000)
+            },
+
             autoplay(){
                 this.interval = setInterval(()=>{
                     this.nextSlide();
-                    clearInterval(this.interval);
-                },3000)
+                }, 3000)
             },
+            
+            // quando il mouse va in hover sullo slider, blocca l'autoplay e riprende quando esce
+            pause(){
+                clearInterval(this.interval);
+            }
         }
     }
 );
