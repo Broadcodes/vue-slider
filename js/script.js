@@ -14,6 +14,7 @@ const app = new Vue(
         el: '#app',
         data: {
             indexItem: 0,
+            interval: '',
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -44,12 +45,14 @@ const app = new Vue(
         },
         methods: {
             nextSlide(){
+                clearInterval(this.interval);
                 this.indexItem++;
                 if(this.indexItem === this.slides.length){
                     this.indexItem = 0;
                 }
             },
             previousSlide(){
+                clearInterval(this.interval);
                 this.indexItem--;
                 if(this.indexItem === - 1){
                     this.indexItem = this.slides.length-1;
@@ -57,7 +60,16 @@ const app = new Vue(
             },
             // al click su una thumb, visualizzare in grande l'immagine corrispondente
             activeSlide(index){
+                clearInterval(this.interval);
                 this.indexItem = index;
+            },
+
+            // applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+            autoplay(){
+                this.interval = setInterval(()=>{
+                    this.nextSlide();
+                    clearInterval(this.interval);
+                },3000)
             },
         }
     }
