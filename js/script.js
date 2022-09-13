@@ -43,7 +43,18 @@ const app = new Vue(
             ]
         },
         methods: {
-            
+            nextSlide(){
+                this.indexItem++;
+                if(this.indexItem === this.slides.length){
+                    this.indexItem = 0;
+                }
+            },
+            previousSlide(){
+                this.indexItem--;
+                if(this.indexItem === - 1){
+                    this.indexItem = this.slides.length-1;
+                }
+            },
         }
     }
 );

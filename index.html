@@ -35,10 +35,15 @@
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb" v-for="element in slides">
-                        <img :src="element.image" :alt="element.title" />
+                    <div @click="previousSlide()" class="prev"></div>
+                    <div @click="nextSlide()" class="next"></div>
+                    <div v-for="element in slides">
+                        <div class="thumb" v-if="slides[indexItem] === element">
+                            <img class="active" :src="element.image" :alt="element.title" />
+                        </div>
+                        <div class="thumb" v-else>
+                            <img :src="element.image" :alt="element.title" />
+                        </div>
                     </div>
                 </div>
 
